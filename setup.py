@@ -9,7 +9,7 @@ setup(
   author_email = 'info@boxcontrol.net',
   url = 'https://github.com/boxcontrol/lowendspirit', 
   download_url = 'https://github.com/boxcontrol/lowendspirit/tarball/0.1', 
-  keywords = ['virtualizor', 'API', 'enduser'], # arbitrary keywords
+  keywords = ['virtualizor', 'solusvm', 'lowendspirit', 'cloudflare', 'API', 'enduser'], # arbitrary keywords
   classifiers = [
 		"Development Status :: 3 - Alpha,
 		"Intended Audience :: Developers",
