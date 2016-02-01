@@ -57,19 +57,5 @@ class Solus_Enduser_API:
         return self.to_json(data)
 
 
-"""
-url = 'vpsadmin.inceptionhosting.com'
-api_key = 'I2M74-1S5QT-4CLMB'
-api_hash = '8bc51adcd6c5eaef399d5d317a278c1392fdac04'
-values = ({'rdtype': 'json', 'hash': api_hash, 'key': api_key})
-
-nethLES = Solus_Enduser_API(url, api_hash, api_key)
-print(nethLES.get_full_info())
-print(nethLES.get_info())
-print(nethLES.get_status())
-#print(nethLES.server_shutdown())
-#print(nethLES.server_shutdown())
-print(nethLES.server_boot())
-"""
 
 

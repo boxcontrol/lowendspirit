@@ -1,8 +1,3 @@
-########################################################################################################################
-##### Python Virtualizor API by BoxControL https://www.boxcontrol.net
-##### it is a port of enduser.php started by Alons
-########################################################################################################################
-
 from phpserialize import unserialize
 import urllib.parse as urp
 import pycurl
@@ -395,17 +390,3 @@ class Virtualizor_Enduser_API:
         # It was done successfully
         elif resp.get(b'done') != None:
             return 'done'
-
-"""
-testServer = Virtualizor_Enduser_API(apikey="7RHQB7DIASVUJYZL",
-                                     apiip="my.evoburst.com",
-                                     apipass="rxvnsf5nczeqxni8pj5wxlpbyaqqe2eo",
-                                     apiprotocol='http',
-                                     apiport='4082')
-
-# Get list of VPS's
-print(testServer.listvs())
-
-print(testServer.status(7625))
-
-"""
