@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Virtualizor Enduser API &mdash; LowEndSpirit 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="LowEndSpirit 0.1 documentation" href="index.html"/>
+        <link rel="prev" title="SolusVM API v1" href="solusvmAPI.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> LowEndSpirit</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#mit-license">MIT License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#lowendspirit-license">lowendspirit License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#cloudflare">Cloudflare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#solusvm">SolusVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#virtulizor">Virtulizor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudflareAPI.html">CloudFlare API v4!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#list-all-data-associated-with-your-account">List all data associated with your account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#list-all-domains-and-their-id-s">List all domains and their ID&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#return-list-of-all-dns-records-associated-with-domain">Return list of all dns records associated with domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#get-user-info-or-your-current-details">Get user info or your current details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#update-user">Update user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#get-user-billing-profile">Get user billing profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#firewall-rules">Firewall rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#zone-related">ZONE related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#dns-records">DNS Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#analytics">Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#zone-firewall-rules">Zone firewall rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solusvmAPI.html">SolusVM API v1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Virtualizor Enduser API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#get-list-of-vps-s">Get list of VPS&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#start-stop-restart-poweroff-the-vps">START, STOP, RESTART, POWEROFF the VPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-or-set-server-s-hostname">GET or SET server&#8217;s hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-cpu-details">Get CPU details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-bandwidth-details">Get Bandwidth Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-the-processes-openvz-only">List the processes - OpenVZ only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-the-services-openvz-only">List the services - OpenVZ only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-root-password-of-the-vps">Change ROOT password of the VPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-the-vnc-details-xen-kvm-only">Get the VNC Details XEN/KVM only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-vnc-password-xen-kvm-only">Change VNC password XEN/KVM only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-available-os-templates">List available OS Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reinstall-the-os">Reinstall the OS</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">LowEndSpirit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Virtualizor Enduser API</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/virtualizorAPI.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="virtualizor-enduser-api">
+<h1>Virtualizor Enduser API<a class="headerlink" href="#virtualizor-enduser-api" title="Permalink to this headline">¶</a></h1>
+<p>Initiate the virtualizor object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span> <span class="o">=</span> <span class="n">lowendspirit</span><span class="o">.</span><span class="n">Virtualizor_Enduser_API</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&quot;your_api_key&quot;</span><span class="p">,</span>
+<span class="go">                                                       apiip=&quot;my.panel.com&quot;,</span>
+<span class="go">                                                       apipass=&quot;your_api_pass&quot;,</span>
+<span class="go">                                                       apiprotocol=&#39;http&#39;,</span>
+<span class="go">                                                       apiport=&#39;4082&#39;)</span>
+</pre></div>
+</div>
+<div class="section" id="get-list-of-vps-s">
+<h2>Get list of VPS&#8217;s<a class="headerlink" href="#get-list-of-vps-s" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">listvs</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-stop-restart-poweroff-the-vps">
+<h2>START, STOP, RESTART, POWEROFF the VPS<a class="headerlink" href="#start-stop-restart-poweroff-the-vps" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;server_id&#39;</span><span class="p">)</span>  <span class="c"># start server</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">stop</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="mi">1005</span><span class="p">)</span>  <span class="c"># stop server with ID 1005</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">restart</span><span class="p">(</span><span class="mi">7463</span><span class="p">)</span>  <span class="c"># restart server with ID 7463</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">poweroff</span><span class="p">(</span><span class="mi">1276</span><span class="p">)</span>  <span class="c"># poweroff server with ID 1276</span>
+</pre></div>
+</div>
+<p>Get server status:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">status</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;server_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-or-set-server-s-hostname">
+<h2>GET or SET server&#8217;s hostname<a class="headerlink" href="#get-or-set-server-s-hostname" title="Permalink to this headline">¶</a></h2>
+<p>To get server hostname:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">hostname</span><span class="p">(</span><span class="mi">1782</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To set server hostname:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">hostname</span><span class="p">(</span><span class="mi">1782</span><span class="p">,</span> <span class="n">newhostname</span><span class="o">=</span><span class="s">&#39;testserver&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-cpu-details">
+<h2>Get CPU details<a class="headerlink" href="#get-cpu-details" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">cpu</span><span class="p">(</span><span class="mi">2777</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-bandwidth-details">
+<h2>Get Bandwidth Details<a class="headerlink" href="#get-bandwidth-details" title="Permalink to this headline">¶</a></h2>
+<p>To get usage for current month:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">bandwidth</span><span class="p">(</span><span class="mi">2777</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To get usage for May of 2015:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">bandwidth</span><span class="p">(</span><span class="mi">2777</span><span class="p">,</span> <span class="s">&#39;201505&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-the-processes-openvz-only">
+<h2>List the processes - OpenVZ only<a class="headerlink" href="#list-the-processes-openvz-only" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">processes</span><span class="p">(</span><span class="mi">4778</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-the-services-openvz-only">
+<h2>List the services - OpenVZ only<a class="headerlink" href="#list-the-services-openvz-only" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">services</span><span class="p">(</span><span class="mi">4778</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-root-password-of-the-vps">
+<h2>Change ROOT password of the VPS<a class="headerlink" href="#change-root-password-of-the-vps" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">changepassword</span><span class="p">(</span><span class="mi">1003</span><span class="p">,</span> <span class="s">&#39;newpassword&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-the-vnc-details-xen-kvm-only">
+<h2>Get the VNC Details XEN/KVM only<a class="headerlink" href="#get-the-vnc-details-xen-kvm-only" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">vnc</span><span class="p">(</span><span class="mi">1003</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For this function to work you need to have VNC enabled for the VPS.</p>
+</div>
+<div class="section" id="change-vnc-password-xen-kvm-only">
+<h2>Change VNC password XEN/KVM only<a class="headerlink" href="#change-vnc-password-xen-kvm-only" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">vncpass</span><span class="p">(</span><span class="mi">1003</span><span class="p">,</span> <span class="s">&#39;newpassword&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For this function to work you need to have VNC enabled for the VPS.</p>
+</div>
+<div class="section" id="list-available-os-templates">
+<h2>List available OS Templates<a class="headerlink" href="#list-available-os-templates" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">ostemplate</span><span class="p">(</span><span class="mi">1387</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You will get list of available OS templates with their associated ID, which you need to reinstall VPS.</p>
+</div>
+<div class="section" id="reinstall-the-os">
+<h2>Reinstall the OS<a class="headerlink" href="#reinstall-the-os" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">ostemplate</span><span class="p">(</span><span class="mi">1387</span><span class="p">,</span> <span class="n">newosid</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">newpass</span><span class="o">=</span><span class="s">&#39;root_password&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><cite>newosid</cite> you obtain from previous function, <cite>newpass</cite> is root password for reinstalled server.</p>
+<p>Install a Control Panel</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">controlpanel</span><span class="p">(</span><span class="mi">1387</span><span class="p">,</span> <span class="s">&#39;cpanel&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="solusvmAPI.html" class="btn btn-neutral" title="SolusVM API v1"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Damir H..
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

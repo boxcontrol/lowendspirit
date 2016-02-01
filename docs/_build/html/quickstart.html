@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quickstart &mdash; LowEndSpirit 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="LowEndSpirit 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Support" href="support.html"/>
+        <link rel="prev" title="Installation" href="install.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> LowEndSpirit</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#mit-license">MIT License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#lowendspirit-license">lowendspirit License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cloudflare">Cloudflare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#solusvm">SolusVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#virtulizor">Virtulizor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cloudflareAPI.html">CloudFlare API v4!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#list-all-data-associated-with-your-account">List all data associated with your account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#list-all-domains-and-their-id-s">List all domains and their ID&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#return-list-of-all-dns-records-associated-with-domain">Return list of all dns records associated with domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#get-user-info-or-your-current-details">Get user info or your current details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#update-user">Update user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#get-user-billing-profile">Get user billing profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#firewall-rules">Firewall rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#zone-related">ZONE related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#dns-records">DNS Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#analytics">Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cloudflareAPI.html#zone-firewall-rules">Zone firewall rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solusvmAPI.html">SolusVM API v1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtualizorAPI.html">Virtualizor Enduser API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-list-of-vps-s">Get list of VPS&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#start-stop-restart-poweroff-the-vps">START, STOP, RESTART, POWEROFF the VPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-or-set-server-s-hostname">GET or SET server&#8217;s hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-cpu-details">Get CPU details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-bandwidth-details">Get Bandwidth Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#list-the-processes-openvz-only">List the processes - OpenVZ only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#list-the-services-openvz-only">List the services - OpenVZ only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#change-root-password-of-the-vps">Change ROOT password of the VPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-the-vnc-details-xen-kvm-only">Get the VNC Details XEN/KVM only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#change-vnc-password-xen-kvm-only">Change VNC password XEN/KVM only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#list-available-os-templates">List available OS Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#reinstall-the-os">Reinstall the OS</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">LowEndSpirit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Quickstart</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/quickstart.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<p>First, make sure you have installed lowendspirit.</p>
+<p>Let&#8217;s get startde with some simple examples:</p>
+<p>Begin with importing lowendspirit module:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lowendspirit</span>
+</pre></div>
+</div>
+<div class="section" id="cloudflare">
+<h2>Cloudflare<a class="headerlink" href="#cloudflare" title="Permalink to this headline">¶</a></h2>
+<p>Now, let&#8217;s create cloudflare object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span> <span class="o">=</span> <span class="n">lowendspirit</span><span class="o">.</span><span class="n">Cloudflare_Enduser_API</span><span class="p">(</span><span class="n">cf_email</span><span class="o">=</span><span class="s">&#39;yourcfemail@example.com&#39;</span><span class="p">,</span>
+<span class="go">                                                      cf_token=&#39;your_cloudflare_API_key&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># get all data associated with your account</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">list_all</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example, output:</p>
+<div class="highlight-python"><div class="highlight"><pre>{   &#39;errors&#39;: [],
+    &#39;messages&#39;: [],
+    &#39;result&#39;: [   {   &#39;created_on&#39;: &#39;2016-01-28T10:01:00.746824Z&#39;,
+                      &#39;development_mode&#39;: 0,
+                      &#39;id&#39;: &#39;&#39;,
+                      &#39;meta&#39;: {   &#39;custom_certificate_quota&#39;: 0,
+                                  &#39;multiple_railguns_allowed&#39;: False,
+                                  &#39;page_rule_quota&#39;: &#39;3&#39;,
+                                  &#39;phishing_detected&#39;: False,
+                                  &#39;step&#39;: 4,
+                                  &#39;wildcard_proxiable&#39;: False},
+                      &#39;modified_on&#39;: &#39;2016-01-28T10:10:54.444469Z&#39;,
+                      &#39;name&#39;: &#39;domain1.net&#39;,
+                      &#39;name_servers&#39;: [   &#39;elle.ns.cloudflare.com&#39;,
+                                          &#39;josh.ns.cloudflare.com&#39;],
+                      &#39;original_dnshost&#39;: None,
+                      &#39;original_name_servers&#39;: [   &#39;dns1.registrar-servers.com&#39;,
+                                                   &#39;dns5.registrar-servers.com&#39;,
+                                                   &#39;dns4.registrar-servers.com&#39;,
+                                                   &#39;dns3.registrar-servers.com&#39;,
+                                                   &#39;dns2.registrar-servers.com&#39;],
+                      &#39;original_registrar&#39;: None,
+                      &#39;owner&#39;: {   &#39;email&#39;: &#39;yourcfemail@example.com&#39;,
+                                   &#39;id&#39;: &#39;&#39;,
+                                   &#39;type&#39;: &#39;user&#39;},
+                      &#39;paused&#39;: False,
+                      &#39;permissions&#39;: [   &#39;#analytics:read&#39;,
+                                         &#39;#billing:edit&#39;,
+                                         &#39;#billing:read&#39;,
+                                         &#39;#cache_purge:edit&#39;,
+                                         &#39;#dns_records:edit&#39;,
+                                         &#39;#dns_records:read&#39;,
+                                         &#39;#lb:edit&#39;,
+                                         &#39;#lb:read&#39;,
+                                         &#39;#logs:read&#39;,
+                                         &#39;#organization:edit&#39;,
+                                         &#39;#organization:read&#39;,
+                                         &#39;#ssl:edit&#39;,
+                                         &#39;#ssl:read&#39;,
+                                         &#39;#waf:edit&#39;,
+                                         &#39;#waf:read&#39;,
+                                         &#39;#zone:edit&#39;,
+                                         &#39;#zone:read&#39;,
+                                         &#39;#zone_settings:edit&#39;,
+                                         &#39;#zone_settings:read&#39;],
+                      &#39;plan&#39;: {   &#39;can_subscribe&#39;: True,
+                                  &#39;currency&#39;: &#39;USD&#39;,
+                                  &#39;externally_managed&#39;: False,
+                                  &#39;frequency&#39;: &#39;&#39;,
+                                  &#39;id&#39;: &#39;0feeeeeeeeeeeeeeeeeeeeeeeeeeeeee&#39;,
+                                  &#39;is_subscribed&#39;: True,
+                                  &#39;legacy_id&#39;: &#39;free&#39;,
+                                  &#39;name&#39;: &#39;Free Website&#39;,
+                                  &#39;price&#39;: 0},
+                      &#39;status&#39;: &#39;active&#39;,
+                      &#39;type&#39;: &#39;full&#39;},
+                  {   &#39;created_on&#39;: &#39;2016-01-23T10:49:25.162252Z&#39;,
+                      &#39;development_mode&#39;: 0,
+                      &#39;id&#39;: &#39;&#39;,
+                      &#39;meta&#39;: {   &#39;custom_certificate_quota&#39;: 0,
+                                  &#39;multiple_railguns_allowed&#39;: False,
+                                  &#39;page_rule_quota&#39;: &#39;3&#39;,
+                                  &#39;phishing_detected&#39;: False,
+                                  &#39;step&#39;: 4,
+                                  &#39;wildcard_proxiable&#39;: False},
+                      &#39;modified_on&#39;: &#39;2016-01-29T13:38:36.716124Z&#39;,
+                      &#39;name&#39;: &#39;domain2.com&#39;,
+                      &#39;name_servers&#39;: [   &#39;elle.ns.cloudflare.com&#39;,
+                                          &#39;josh.ns.cloudflare.com&#39;],
+                      &#39;original_dnshost&#39;: None,
+                      &#39;original_name_servers&#39;: [   &#39;dns3.registrar-servers.com&#39;,
+                                                   &#39;dns5.registrar-servers.com&#39;,
+                                                   &#39;dns4.registrar-servers.com&#39;,
+                                                   &#39;dns1.registrar-servers.com&#39;,
+                                                   &#39;dns2.registrar-servers.com&#39;],
+                      &#39;original_registrar&#39;: None,
+                      &#39;owner&#39;: {   &#39;email&#39;: &#39;yourcfemail@example.com&#39;,
+                                   &#39;id&#39;: &#39;&#39;,
+                                   &#39;type&#39;: &#39;user&#39;},
+                      &#39;paused&#39;: False,
+                      &#39;permissions&#39;: [   &#39;#analytics:read&#39;,
+                                         &#39;#billing:edit&#39;,
+                                         &#39;#billing:read&#39;,
+                                         &#39;#cache_purge:edit&#39;,
+                                         &#39;#dns_records:edit&#39;,
+                                         &#39;#dns_records:read&#39;,
+                                         &#39;#lb:edit&#39;,
+                                         &#39;#lb:read&#39;,
+                                         &#39;#logs:read&#39;,
+                                         &#39;#organization:edit&#39;,
+                                         &#39;#organization:read&#39;,
+                                         &#39;#ssl:edit&#39;,
+                                         &#39;#ssl:read&#39;,
+                                         &#39;#waf:edit&#39;,
+                                         &#39;#waf:read&#39;,
+                                         &#39;#zone:edit&#39;,
+                                         &#39;#zone:read&#39;,
+                                         &#39;#zone_settings:edit&#39;,
+                                         &#39;#zone_settings:read&#39;],
+                      &#39;plan&#39;: {   &#39;can_subscribe&#39;: True,
+                                  &#39;currency&#39;: &#39;USD&#39;,
+                                  &#39;externally_managed&#39;: False,
+                                  &#39;frequency&#39;: &#39;&#39;,
+                                  &#39;id&#39;: &#39;0feeeeeeeeeeeeeeeeeeeeeeeeeeeeee&#39;,
+                                  &#39;is_subscribed&#39;: True,
+                                  &#39;legacy_id&#39;: &#39;free&#39;,
+                                  &#39;name&#39;: &#39;Free Website&#39;,
+                                  &#39;price&#39;: 0},
+                      &#39;status&#39;: &#39;active&#39;,
+                      &#39;type&#39;: &#39;full&#39;}],
+    &#39;result_info&#39;: {   &#39;count&#39;: 2,
+                       &#39;page&#39;: 1,
+                       &#39;per_page&#39;: 20,
+                       &#39;total_count&#39;: 2,
+                       &#39;total_pages&#39;: 1},
+    &#39;success&#39;: True}
+&gt;&gt;&gt;
+</pre></div>
+</div>
+<p>If you have more then 2 domains then the list goes on.</p>
+</div>
+<div class="section" id="solusvm">
+<h2>SolusVM<a class="headerlink" href="#solusvm" title="Permalink to this headline">¶</a></h2>
+<p>Create SolusVM object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">solus_vm</span> <span class="o">=</span> <span class="n">lowendspirit</span><span class="o">.</span><span class="n">Solus_Enduser_API</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s">&#39;solusqueryaddress.com&#39;</span><span class="p">,</span>
+<span class="go">                                              api_hash=&#39;API_HASH_for_your_server&#39;,</span>
+<span class="go">                                              api_key=&#39;API_Key_for_your_server&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># get full server info</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">solus_vm</span><span class="o">.</span><span class="n">get_full_info</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="go">&gt;&gt;&gt;</span>
+<span class="go">    {   &#39;bw&#39;: &#39;536870912000,731629,536870180371,0&#39;,</span>
+<span class="go">    &#39;hdd&#39;: &#39;2147483648,434012160,1713471488,20&#39;,</span>
+<span class="go">    &#39;hostname&#39;: &#39;your_hostname&#39;,</span>
+<span class="go">    &#39;ipaddr&#39;: &#39;192.168.0.146,2a00:xxx:x:xxx::xxxx:xxxx&#39;,</span>
+<span class="go">    &#39;ipaddress&#39;: &#39;192.168.0.146&#39;,</span>
+<span class="go">    &#39;mem&#39;: &#39;134217728,5668864,128548864,4&#39;,</span>
+<span class="go">    &#39;status&#39;: &#39;success&#39;,</span>
+<span class="go">    &#39;statusmsg&#39;: &#39;&#39;,</span>
+<span class="go">    &#39;vmstat&#39;: &#39;&#39;}</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="virtulizor">
+<h2>Virtulizor<a class="headerlink" href="#virtulizor" title="Permalink to this headline">¶</a></h2>
+<p>Create virtualizor object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span> <span class="o">=</span> <span class="n">lowendspirit</span><span class="o">.</span><span class="n">Virtualizor_Enduser_API</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&quot;your_api_key&quot;</span><span class="p">,</span>
+<span class="go">                                                       apiip=&quot;my.panel.com&quot;,</span>
+<span class="go">                                                       apipass=&quot;your_api_pass&quot;,</span>
+<span class="go">                                                       apiprotocol=&#39;http&#39;,</span>
+<span class="go">                                                       apiport=&#39;4082&#39;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c"># get list of vm&#39;s in your account</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span><span class="o">.</span><span class="n">listvs</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>If you want to use <cite>https</cite> protocol then you don&#8217;t need to pass it as argument, also in that case don&#8217;t pass <cite>apiport</cite>, it will default  to https and 4083.
+For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">virtualizor</span> <span class="o">=</span> <span class="n">lowendspirit</span><span class="o">.</span><span class="n">Virtualizor_Enduser_API</span><span class="p">(</span><span class="n">apikey</span><span class="o">=</span><span class="s">&quot;your_api_key&quot;</span><span class="p">,</span>
+<span class="go">                                                       apiip=&quot;my.panel.com&quot;,</span>
+<span class="go">                                                       apipass=&quot;your_api_pass&quot;)</span>
+</pre></div>
+</div>
+<p>Example output for <cite>listvs()</cite> gives you the ID&#8217;s of server&#8217;s under your account:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">dict_keys</span><span class="p">([</span><span class="mi">7625</span><span class="p">])</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+<p>If you have more then one server in your account that list will be longer.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="support.html" class="btn btn-neutral float-right" title="Support">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install.html" class="btn btn-neutral" title="Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Damir H..
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

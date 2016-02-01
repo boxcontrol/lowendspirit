@@ -1,0 +1,368 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CloudFlare API v4! &mdash; LowEndSpirit 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="LowEndSpirit 0.1 documentation" href="index.html"/>
+        <link rel="next" title="SolusVM API v1" href="solusvmAPI.html"/>
+        <link rel="prev" title="Support" href="support.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> LowEndSpirit</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#mit-license">MIT License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="intro.html#lowendspirit-license">lowendspirit License</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#cloudflare">Cloudflare</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#solusvm">SolusVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quickstart.html#virtulizor">Virtulizor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">CloudFlare API v4!</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-all-data-associated-with-your-account">List all data associated with your account</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#list-all-domains-and-their-id-s">List all domains and their ID&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#return-list-of-all-dns-records-associated-with-domain">Return list of all dns records associated with domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-user-info-or-your-current-details">Get user info or your current details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-user">Update user</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-user-billing-profile">Get user billing profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#firewall-rules">Firewall rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zone-related">ZONE related</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dns-records">DNS Records</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#analytics">Analytics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zone-firewall-rules">Zone firewall rules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="solusvmAPI.html">SolusVM API v1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="virtualizorAPI.html">Virtualizor Enduser API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-list-of-vps-s">Get list of VPS&#8217;s</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#start-stop-restart-poweroff-the-vps">START, STOP, RESTART, POWEROFF the VPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-or-set-server-s-hostname">GET or SET server&#8217;s hostname</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-cpu-details">Get CPU details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-bandwidth-details">Get Bandwidth Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#list-the-processes-openvz-only">List the processes - OpenVZ only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#list-the-services-openvz-only">List the services - OpenVZ only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#change-root-password-of-the-vps">Change ROOT password of the VPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#get-the-vnc-details-xen-kvm-only">Get the VNC Details XEN/KVM only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#change-vnc-password-xen-kvm-only">Change VNC password XEN/KVM only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#list-available-os-templates">List available OS Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="virtualizorAPI.html#reinstall-the-os">Reinstall the OS</a></li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">LowEndSpirit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>CloudFlare API v4!</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/cloudflareAPI.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="cloudflare-api-v4">
+<h1>CloudFlare API v4!<a class="headerlink" href="#cloudflare-api-v4" title="Permalink to this headline">¶</a></h1>
+<p>Initiate the Cloudflare object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span> <span class="o">=</span> <span class="n">lowendspirit</span><span class="o">.</span><span class="n">Cloudflare_Enduser_API</span><span class="p">(</span><span class="n">cf_email</span><span class="o">=</span><span class="s">&#39;yourcfemail@example.com&#39;</span><span class="p">,</span>
+<span class="go">                                                      cf_token=&#39;your_cloudflare_API_key&#39;)</span>
+</pre></div>
+</div>
+<div class="section" id="list-all-data-associated-with-your-account">
+<h2>List all data associated with your account<a class="headerlink" href="#list-all-data-associated-with-your-account" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">list_all</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="list-all-domains-and-their-id-s">
+<h2>List all domains and their ID&#8217;s<a class="headerlink" href="#list-all-domains-and-their-id-s" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">list_domain_ids</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-list-of-all-dns-records-associated-with-domain">
+<h2>Return list of all dns records associated with domain<a class="headerlink" href="#return-list-of-all-dns-records-associated-with-domain" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_record</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;domain_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>you need to get <cite>id</cite> from previous function <cite>list_domain_ids()</cite>.</p>
+</div>
+<div class="section" id="get-user-info-or-your-current-details">
+<h2>Get user info or your current details<a class="headerlink" href="#get-user-info-or-your-current-details" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_user</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-user">
+<h2>Update user<a class="headerlink" href="#update-user" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;first_name&quot;</span><span class="p">:</span><span class="s">&quot;John&quot;</span><span class="p">,</span><span class="s">&quot;last_name&quot;</span><span class="p">:</span><span class="s">&quot;Appleseed&quot;</span><span class="p">,</span><span class="s">&quot;telephone&quot;</span><span class="p">:</span><span class="s">&quot;+1 123-123-1234&quot;</span><span class="p">,</span><span class="s">&quot;country&quot;</span><span class="p">:</span><span class="s">&quot;US&quot;</span><span class="p">,</span><span class="s">&quot;zipcode&quot;</span><span class="p">:</span><span class="s">&quot;12345&quot;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">patch_user</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-user-billing-profile">
+<h2>Get user billing profile<a class="headerlink" href="#get-user-billing-profile" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_user_billing_profile</span><span class="p">(</span><span class="s">&#39;profile&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_user_billing_profile</span><span class="p">(</span><span class="s">&#39;history&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>for full list of available api endpoints visit <a class="reference external" href="https://api.cloudflare.com/">https://api.cloudflare.com/</a></p>
+</div>
+<div class="section" id="firewall-rules">
+<h2>Firewall rules<a class="headerlink" href="#firewall-rules" title="Permalink to this headline">¶</a></h2>
+<p>Get list of firewall rules:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_firewall_rules</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Set firewall rule for all domains under your account:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rule</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;challenge&quot;</span><span class="p">,</span> <span class="s">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s">&quot;target&quot;</span><span class="p">:</span> <span class="s">&quot;ip&quot;</span><span class="p">,</span> <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;1.2.3.4&quot;</span><span class="p">},</span>
+<span class="go">            &quot;notes&quot;: &quot;This rule is on because of an event that occured on date X&quot;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">set_access_rule</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">rule</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Update firewall rule:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">rule</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;block&quot;</span><span class="p">,</span> <span class="s">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s">&quot;target&quot;</span><span class="p">:</span> <span class="s">&quot;ip&quot;</span><span class="p">,</span> <span class="s">&quot;value&quot;</span><span class="p">:</span> <span class="s">&quot;1.2.3.4&quot;</span><span class="p">},</span>
+<span class="go">            &quot;notes&quot;: &quot;This rule is on because of an event that occured on date X&quot;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">update_access_rule</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Delete firewall rule:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">del_access_rule</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;id_of_rule_to_be_deleted&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>To get <cite>id</cite> of the rule to delete get list of firewall rules first.</p>
+</div>
+<div class="section" id="zone-related">
+<h2>ZONE related<a class="headerlink" href="#zone-related" title="Permalink to this headline">¶</a></h2>
+<p>Create new zone:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="ow">not</span> <span class="n">implemented</span> <span class="n">yet</span>
+</pre></div>
+</div>
+<p>Get zone details:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_zone_details</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;zone_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dns-records">
+<h2>DNS Records<a class="headerlink" href="#dns-records" title="Permalink to this headline">¶</a></h2>
+<p>Create DNS record:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;type&quot;</span><span class="p">:</span> <span class="s">&quot;A&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">:</span><span class="s">&quot;your_domain.com&quot;</span><span class="p">,</span> <span class="s">&quot;content&quot;</span><span class="p">:</span> <span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="s">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">120</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">create_dns_record</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;zone_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>you get <cite>zone_id</cite> with <cite>list_domain_ids()</cite> first.</p>
+<p>Get list of dns records:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_dns_records</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;zone_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Get details of the dns record:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_dns_record_details</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s">&#39;zone_id&#39;</span><span class="p">,</span> <span class="n">record_id</span><span class="o">=</span><span class="s">&#39;record_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Update DNS record:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;id&quot;</span><span class="p">:</span> <span class="s">&quot;a3d143047e57c6479c3a3a8328c21917&quot;</span><span class="p">,</span>
+<span class="go">            &quot;type&quot;: &quot;A&quot;,</span>
+<span class="go">            &quot;name&quot;: &quot;example.com&quot;,</span>
+<span class="go">            &quot;content&quot;: &quot;1.2.3.4&quot;,</span>
+<span class="go">            &quot;proxiable&quot;: True,</span>
+<span class="go">            &quot;proxied&quot;: False,</span>
+<span class="go">            &quot;ttl&quot;: 120,</span>
+<span class="go">            &quot;locked&quot;: False,</span>
+<span class="go">            &quot;zone_id&quot;: &quot;6261e6e9c365e4db31d68046982f84f6&quot;,</span>
+<span class="go">            &quot;zone_name&quot;: &quot;example.com&quot;,</span>
+<span class="go">            &quot;created_on&quot;: &quot;2014-01-01T05:20:00.12345Z&quot;,</span>
+<span class="go">            &quot;modified_on&quot;: &quot;2014-01-01T05:20:00.12345Z&quot;,</span>
+<span class="go">            &quot;data&quot;: {}}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">update_dns_record</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Delete DNS record:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">del_dns_record</span><span class="p">(</span><span class="n">zone_id</span><span class="o">=</span><span class="s">&#39;zone_id&#39;</span><span class="p">,</span> <span class="n">domain_id</span><span class="o">=</span><span class="s">&#39;domain_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="analytics">
+<h2>Analytics<a class="headerlink" href="#analytics" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_zone_analytics</span><span class="p">(</span><span class="n">zone_id</span><span class="o">=</span><span class="s">&#39;zone_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="zone-firewall-rules">
+<h2>Zone firewall rules<a class="headerlink" href="#zone-firewall-rules" title="Permalink to this headline">¶</a></h2>
+<p>Get zone firewall rules:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">get_zone_firewall_rules</span><span class="p">(</span><span class="n">zone_id</span><span class="o">=</span><span class="s">&#39;zone_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Create zone firewall rule:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;challenge&quot;</span><span class="p">,</span>
+<span class="go">            &quot;configuration&quot;: {&quot;target&quot;: &quot;ip&quot;, &quot;value&quot;: &quot;127.0.0.7&quot;},</span>
+<span class="go">            &quot;notes&quot;: &quot;This rule is on because of an event that occured on date X&quot;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">create_zone_firewall_rule</span><span class="p">(</span><span class="n">zone_id</span><span class="o">=</span><span class="s">&#39;zone_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Update zone firewall rule:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;mode&quot;</span><span class="p">:</span> <span class="s">&quot;challenge&quot;</span><span class="p">,</span>
+<span class="go">            &quot;configuration&quot;: {&quot;target&quot;: &quot;ip&quot;, &quot;value&quot;: &quot;127.0.0.7&quot;},</span>
+<span class="go">            &quot;notes&quot;: &quot;This rule is on because of an event that occured on date X&quot;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud_flare</span><span class="o">.</span><span class="n">update_zone_firewall_rule</span><span class="p">(</span><span class="n">zone_id</span><span class="o">=</span><span class="s">&#39;zone_id&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Delete zone firewall rule:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="ow">not</span> <span class="n">implemented</span> <span class="n">yet</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="solusvmAPI.html" class="btn btn-neutral float-right" title="SolusVM API v1">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="support.html" class="btn btn-neutral" title="Support"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Damir H..
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+===========
+Virtualizor
+===========
+
+## Usage
+
+```python
+from virtualizorAPI import Virtualizor_Enduser_API
+```
+
+#### Define the server
+
+You should have virtualizor server and you need to obtain `apikey` and `apipass` for your account.
+
+```python
+testServer = Virtualizor_Enduser_API(apikey="Your_API_key",
+                                     apiip="Virt_Panel_IP",
+                                     apipass="Your_API_PASS",
+                                     apiprotocol='http',
+                                     apiport='4082')
+```
+
+You don't need `apiprotocol` and `apiport` if you use https, the defaults are set.
+
+#### Get list of VPS's
+
+```python
+testServer.listvs()
+```
+
+This call will return ID's of VPS's associated with your account, you will need VPS ID for other functions.
+
+#### START, STOP, RESTART, POWEROFF a VPS
+
+```python
+testServer.start(1003) # START server with ID 1003
+testServer.stop(1005) # STOP server with ID 1005
+testServer.restart(7463) # RESTART server with ID 7463
+testServer.poweroff(1176) # POWEROFF server with ID 1176
+```
+
+#### Get server STATUS
+
+```python
+testServer.status(1703)
+```
+
+Get ONLINE or OFFLINE for the server with ID 1703.
+
+#### GET or SET server's hostname
+
+To get current hostname of server with ID 1782:
+
+```python
+testServer.hostname(1782)
+```
+
+To set hostname for the server with ID 1782:
+
+```python
+testServer.hostname(1782, newhostname='testserver')
+```
+
+#### Get CPU Details
+
+```python
+testServer.cpu(1777)
+```
+
+#### Get Bandwidth Details
+
+To get usage for current month:
+
+```python
+testServer.bandwidth(1777)
+```
+
+To get usage for the May of 2015
+
+```python
+testServer.cpu(1777, '201505')
+```
+
+#### List the processes - OpenVZ only
+
+```python
+testServer.processes(4775)
+```
+
+#### List the services - OpenVZ only
+
+```python
+testServer.services(4775)
+```
+
+#### Change ROOT password of the VPS
+
+```python
+testServer.changepassword(1003, 'newpassword')
+```
+
+#### Get the VNC Details XEN/KVM only
+
+```python
+testServer.vnc(1343)
+```
+
+For this function to work you need to have VNC enabled for the VPS.
+
+#### Change VNC password XEN/KVM only
+
+```python
+testServer.vncpass(1343, 'newpass')
+```
+
+For this function to work you need to have VNC enabled for the VPS.
+
+#### List available OS Templates
+
+```python
+testServer.ostemplate(1387)
+```
+
+You will get list of available OS templates with their associated ID, which you need to reinstall VPS.
+
+#### Reinstall the OS
+
+```python
+testServer.ostemplate(1387, newosid=1, newpass='root_password')
+```
+
+`newosid` you obtain from previous function, `newpass` is root password for reinstalled server.
+
+#### Install a Control Panel
+
+```python
+testServer.controlpanel(1387, 'cpanel')
+```
+
+## Contribute
+
+There are probably many improvements that can be made, so fork repository from [github](https://github.com/boxcontrol/VirtualizorAPI) and make pull request.
+

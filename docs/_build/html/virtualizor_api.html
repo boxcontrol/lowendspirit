@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Virtualizor &mdash; LowEndSpirit 0.1 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="LowEndSpirit 0.1 documentation" href="index.html"/>
+        <link rel="next" title="Installation" href="install.html"/>
+        <link rel="prev" title="Welcome to LowEndSpirit’s documentation!" href="index.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> LowEndSpirit</a>
+        
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="">Virtualizor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support.html">Support</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">LowEndSpirit</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Virtualizor</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="_sources/virtualizor_api.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="virtualizor">
+<h1>Virtualizor<a class="headerlink" href="#virtualizor" title="Permalink to this headline">¶</a></h1>
+<p>## Usage</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">from</span> <span class="pre">virtualizorAPI</span> <span class="pre">import</span> <span class="pre">Virtualizor_Enduser_API</span>
+<span class="pre">`</span></code></p>
+<p>#### Define the server</p>
+<p>You should have virtualizor server and you need to obtain <cite>apikey</cite> and <cite>apipass</cite> for your account.</p>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+testServer = Virtualizor_Enduser_API(apikey=&#8221;Your_API_key&#8221;,</p>
+<blockquote>
+<div>apiip=&#8221;Virt_Panel_IP&#8221;,
+apipass=&#8221;Your_API_PASS&#8221;,
+apiprotocol=&#8217;http&#8217;,
+apiport=&#8216;4082&#8217;)</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p>You don&#8217;t need <cite>apiprotocol</cite> and <cite>apiport</cite> if you use https, the defaults are set.</p>
+<p>#### Get list of VPS&#8217;s</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.listvs()</span>
+<span class="pre">`</span></code></p>
+<p>This call will return ID&#8217;s of VPS&#8217;s associated with your account, you will need VPS ID for other functions.</p>
+<p>#### START, STOP, RESTART, POWEROFF a VPS</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.start(1003)</span> <span class="pre">#</span> <span class="pre">START</span> <span class="pre">server</span> <span class="pre">with</span> <span class="pre">ID</span> <span class="pre">1003</span>
+<span class="pre">testServer.stop(1005)</span> <span class="pre">#</span> <span class="pre">STOP</span> <span class="pre">server</span> <span class="pre">with</span> <span class="pre">ID</span> <span class="pre">1005</span>
+<span class="pre">testServer.restart(7463)</span> <span class="pre">#</span> <span class="pre">RESTART</span> <span class="pre">server</span> <span class="pre">with</span> <span class="pre">ID</span> <span class="pre">7463</span>
+<span class="pre">testServer.poweroff(1176)</span> <span class="pre">#</span> <span class="pre">POWEROFF</span> <span class="pre">server</span> <span class="pre">with</span> <span class="pre">ID</span> <span class="pre">1176</span>
+<span class="pre">`</span></code></p>
+<p>#### Get server STATUS</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.status(1703)</span>
+<span class="pre">`</span></code></p>
+<p>Get ONLINE or OFFLINE for the server with ID 1703.</p>
+<p>#### GET or SET server&#8217;s hostname</p>
+<p>To get current hostname of server with ID 1782:</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.hostname(1782)</span>
+<span class="pre">`</span></code></p>
+<p>To set hostname for the server with ID 1782:</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.hostname(1782,</span> <span class="pre">newhostname='testserver')</span>
+<span class="pre">`</span></code></p>
+<p>#### Get CPU Details</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.cpu(1777)</span>
+<span class="pre">`</span></code></p>
+<p>#### Get Bandwidth Details</p>
+<p>To get usage for current month:</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.bandwidth(1777)</span>
+<span class="pre">`</span></code></p>
+<p>To get usage for the May of 2015</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.cpu(1777,</span> <span class="pre">'201505')</span>
+<span class="pre">`</span></code></p>
+<p>#### List the processes - OpenVZ only</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.processes(4775)</span>
+<span class="pre">`</span></code></p>
+<p>#### List the services - OpenVZ only</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.services(4775)</span>
+<span class="pre">`</span></code></p>
+<p>#### Change ROOT password of the VPS</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.changepassword(1003,</span> <span class="pre">'newpassword')</span>
+<span class="pre">`</span></code></p>
+<p>#### Get the VNC Details XEN/KVM only</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.vnc(1343)</span>
+<span class="pre">`</span></code></p>
+<p>For this function to work you need to have VNC enabled for the VPS.</p>
+<p>#### Change VNC password XEN/KVM only</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.vncpass(1343,</span> <span class="pre">'newpass')</span>
+<span class="pre">`</span></code></p>
+<p>For this function to work you need to have VNC enabled for the VPS.</p>
+<p>#### List available OS Templates</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.ostemplate(1387)</span>
+<span class="pre">`</span></code></p>
+<p>You will get list of available OS templates with their associated ID, which you need to reinstall VPS.</p>
+<p>#### Reinstall the OS</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.ostemplate(1387,</span> <span class="pre">newosid=1,</span> <span class="pre">newpass='root_password')</span>
+<span class="pre">`</span></code></p>
+<p><cite>newosid</cite> you obtain from previous function, <cite>newpass</cite> is root password for reinstalled server.</p>
+<p>#### Install a Control Panel</p>
+<p><code class="docutils literal"><span class="pre">`python</span>
+<span class="pre">testServer.controlpanel(1387,</span> <span class="pre">'cpanel')</span>
+<span class="pre">`</span></code></p>
+<p>## Contribute</p>
+<p>There are probably many improvements that can be made, so fork repository from [github](<a class="reference external" href="https://github.com/boxcontrol/VirtualizorAPI">https://github.com/boxcontrol/VirtualizorAPI</a>) and make pull request.</p>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install.html" class="btn btn-neutral float-right" title="Installation">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Welcome to LowEndSpirit’s documentation!"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Damir Halkovic.
+    </p>
+  </div>
+
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.1',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
